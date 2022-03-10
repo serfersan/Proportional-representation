@@ -16,13 +16,11 @@ Python script created as part of a Master's Thesis.
   - 2018 Brazilian general elections
     - Total seats obtained by party (Data_2018.csv)
     - Seats obtained by party in each electoral district (FU_Folder_2018.zip)
+    - http://electionresources.org/br/deputies.php?election=2018
   - 2014 Brazilian general elections
     - Total seats obtained by party (Data_2014.csv)
     - Seats obtained by party in each electoral district (FU_Folder_2014.zip)
-## References:
-  -Database
-    - http://electionresources.org/br/deputies.php?election=2018
     - http://electionresources.org/br/deputies.php?election=2014&state=BR
-  - Algorithm
-    <a id="1">[1]</a> Pukelsheim, F., 2017. Proportional representation. Springer International Publishing AG.
+## References:
+<a id="1">[1]</a> Pukelsheim, F., 2017. Proportional representation. Springer International Publishing AG.
     
