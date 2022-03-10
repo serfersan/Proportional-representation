@@ -23,4 +23,8 @@ Python script created as part of a Master's Thesis.
     - http://electionresources.org/br/deputies.php?election=2014&state=BR
 ## References:
 <a id="1">[1]</a> Pukelsheim, F., 2017. Proportional representation. Springer International Publishing AG.
+
+<a id="1">[2]</a> Gallagher, M., 1991. Proportionality, disproportionality and electoral systems. Electoral studies, 10(1), pp.33-51.
+
+<a id="1">[3]</a> Karpov, A., 2008. Measurement of disproportionality in proportional representation systems. Mathematical and Computer Modelling, 48(9-10), pp.1421-1438.
     
