@@ -19,3 +19,6 @@ Databases loaded:
   - 2014 Brazilian general elections
     - Total seats obtained by party (Data_2014.csv)
     - Seats obtained by party in each electoral district (FU_Folder_2014.zip)
+Source:
+  - http://electionresources.org/br/deputies.php?election=2018
+  - http://electionresources.org/br/deputies.php?election=2014&state=BR
