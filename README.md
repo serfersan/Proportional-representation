@@ -10,7 +10,7 @@ Python script created as part of a Master's Thesis.
   - Some index of disproportionality implemented (Gallagher, Loosemore-Hanby, Jefferson (any %), Sainte-Laguë, Rae)
   - Some superfluous auxiliary functions for data visualization
   - documentation about the functions
-  - Examples of usage with databases uploaded
+  - Examples of usage with uploaded databases
 
 ## Databases loaded:
   - 2018 Brazilian general elections
