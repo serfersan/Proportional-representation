@@ -5,6 +5,8 @@ Includes:
   - Webster and Jefferson methods implemented
   - Class for seat calculation and electoral weight manipulation
   - Tie and Transfer algorithm implemented via auxiliary functions also included
+      - The algorithm uses d'Hondt divisor method for calculating the column restrictions of the seat matrix (seats obtained by each party)
+      - It uses Sainte-Laguë divisor method for allocation of seats in columns and seat transfer
   - Some index of disproportionality implemented (Gallagher, Loosemore-Hanby, Jefferson (any %), Sainte-Laguë, Rae)
   - Some superfluous auxiliary functions for data visualization
   - documentation about the functions
