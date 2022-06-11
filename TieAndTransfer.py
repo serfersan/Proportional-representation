@@ -1,6 +1,6 @@
 
 ####################################################################
-##         TIE AND TRANSFER ALGORITHM (D'HONDT + WEBSTER)         ##
+##         BIPROPORTIONAL ALGORITHM (D'HONDT + WEBSTER)         ##
 ####################################################################
 
 # Libraries
@@ -596,7 +596,7 @@ def DirectWebster(WeightList: list, HouseSize: int) -> list:
     return SeatList
 
 ############################################
-#   TIE AND TRANSFER AUXILIARY FUNCTIONS   #
+#  AUXILIARY FUNCTIONS (BIPROP. ALGORIHTM) #
 ############################################
 
 
@@ -1028,16 +1028,15 @@ class WeightSeatMatrix:
         pyclip.copy(Output)
 
 ############################################
-#        TIE AND TRANSFER ALGORITHM        #
+#         BIPROPORTIONAL ALGORITHM         #
 ############################################
 
 
-def TieTransfer(VMatrix: WeightSeatMatrix) -> None:
+def BiproportionalApportionment(VMatrix: WeightSeatMatrix) -> None:
     """
-    Performs Tie and Transfer algorithm for biproportional\n
-    seat allocation.
+    Allocates seats following a biproportional scheme.
 
-    >>> WebsterSeatAllocation(WeightSeatMatrix_object)
+    >>> BiproportionalApportionment(WeightSeatMatrix_object)
 
     Returns
     -----------
@@ -1073,7 +1072,7 @@ def TieTransfer(VMatrix: WeightSeatMatrix) -> None:
         if FlawCount == 0:
             return None
         else:
-            return TieTransfer(VMatrix)
+            return BiproportionalApportionment(VMatrix)
     LabeledRows = [VMatrix.OverRepresentedDistricts[0]]
     LabeledColumns = []
     (LabeledRows, LabeledColumns) = UpdateLabeled(
@@ -1098,7 +1097,7 @@ def TieTransfer(VMatrix: WeightSeatMatrix) -> None:
             VMatrix.UpdateIncrDecrMatrix()
             FlawCount += -2
             if FlawCount > 0:
-                return TieTransfer(VMatrix)
+                return BiproportionalApportionment(VMatrix)
             else:
                 return None
         (LabeledRows, LabeledColumns) = UpdateLabeled(
@@ -1282,7 +1281,7 @@ TestDat_2014 = WeightSeatMatrix(VoteMatrix_2014, DistrictNames_2014,
 
 # GENERAL RESULTS 2018, 2014
 """
-TieTransfer(TestDat_2018)
+BiproportionalApportionment(TestDat_2018)
 General2018 = [TestDat_2018.Parties] + [[Data_2018[i][1]
                                          for i in range(len(Data_2018))]] + [[Data_2018[i][3]
                                                                               for i in range(len(Data_2018))]] + [TestDat_2018.TotalPartySeats]
@@ -1290,7 +1289,7 @@ General2018 = SortPerIndex([list(i) for i in zip(*General2018)], 1)
 # LatexClipboardDataDoubleColumn(
 #    General2018, ["Partido", "Votos", "Esc.", "Esc.$^*$"])
 
-TieTransfer(TestDat_2014)
+BiproportionalApportionment(TestDat_2014)
 General2014 = [TestDat_2014.Parties] + [[Data_2014[i][1]
                                          for i in range(len(Data_2014))]] + [[Data_2014[i][3]
                                                                               for i in range(len(Data_2014))]] + [TestDat_2014.TotalPartySeats]
@@ -1309,7 +1308,7 @@ for i in [i*0.065/n for i in range(n+1)]:
     VoteMatrixAux = Threshold(VoteMatrix_2018, i)
     TestDatAux = WeightSeatMatrix(
         VoteMatrixAux, DistrictNames_2018, PartyNames_2018, DistrictSizes_2018)
-    TieTransfer(TestDatAux)
+    BiproportionalApportionment(TestDatAux)
     TotalSeatMatrix_2018 += [TestDatAux.TotalPartySeats]
 TotalSeatMatrixPerc_2018 = TotalSeatMatrix_2018
 for i in range(len(TotalSeatMatrix_2018)):
@@ -1333,7 +1332,7 @@ for i in [i*0.065/n for i in range(n+1)]:
     VoteMatrixAux = Threshold(VoteMatrix_2014, i)
     TestDatAux = WeightSeatMatrix(
         VoteMatrixAux, DistrictNames_2014, PartyNames_2014, DistrictSizes_2014)
-    TieTransfer(TestDatAux)
+    BiproportionalApportionment(TestDatAux)
     TotalSeatMatrix_2014 += [TestDatAux.TotalPartySeats]
 # each list represents the results at a certain threshold (but the first one which is the original outcome)
 TotalSeatMatrixPerc_2014 = TotalSeatMatrix_2014
@@ -1357,9 +1356,9 @@ TotalIndexMatrix = [["BR-2018: I$_G$"]+GalList_2018, ["BR-2018: I$_J$"]+JeffList
 HeaderList = ["Index/Barriers"] + HeaderList_2018
 LatexClipboardData(TotalIndexMatrix, HeaderList)
 """
-# seats obtained using Tie and transfer using 2014 election data
+# seats obtained using the algorithm with 2014 election data
 """
-TieTransfer(TestDat_2014)
+BiproportionalApportionment(TestDat_2014)
 FirstMatrix = [TestDat_2014.TotalPartySeats]
 Stop1 = int(len(TestDat_2014.SeatMatrix)/3)
 Stop2 = 2*int(len(TestDat_2014.SeatMatrix)/3)
